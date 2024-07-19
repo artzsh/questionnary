@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <script>
+        function addEmployee() {
+            const employeesDiv = document.getElementById('employees');
+            const newEmployee = document.createElement('div');
+            newEmployee.innerHTML = `
+                <h4>Сотрудник</h4>
+                <label>Специальность: <input type="text" name="specialty[]"></label><br>
+                <label>Возраст: <input type="number" name="age[]"></label><br>
+                <label>Образование: <input type="text" name="education[]"></label><br>
+                <label>Где получено образование: <input type="text" name="education_location[]"></label><br>
+                <label>Когда получено: <input type="number" name="education_year[]"></label><br>
+                <label>Допобразование по специальности: <input type="text" name="additional_specialty_education[]"></label><br>
+                <label>Допобразование по занимаемой должности: <input type="text" name="additional_position_education[]"></label><br>
+            `;
+            employeesDiv.appendChild(newEmployee);
+        }
+    </script>
+</head>
+<body>
+    <form action="/submit" method="POST">
+        <h3>Информация об учреждении</h3>
+        <label>Место нахождения: <input type="text" name="location"></label><br>
+        <label>Название учреждения: <input type="text" name="name"></label><br>
+        <label>Тип учреждения: <input type="text" name="type"></label><br>
+        <label>Имеется ли в учреждении недостаток кадров? <input type="checkbox" name="staff_shortage"></label><br>
+        
+        <div id="employees">
+            <h3>Информация о сотрудниках</h3>
+            <div>
+                <h4>Сотрудник</h4>
+                <label>Специальность: <input type="text" name="specialty[]"></label><br>
+                <label>Возраст: <input type="number" name="age[]"></label><br>
+                <label>Образование: <input type="text" name="education[]"></label><br>
+                <label>Где получено образование: <input type="text" name="education_location[]"></label><br>
+                <label>Когда получено: <input type="number" name="education_year[]"></label><br>
+                <label>Допобразование по специальности: <input type="text" name="additional_specialty_education[]"></label><br>
+                <label>Допобразование по занимаемой должности: <input type="text" name="additional_position_education[]"></label><br>
+            </div>
+        </div>
+
+        <button type="button" onclick="addEmployee()">Добавить сотрудника</button><br><br>
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>
